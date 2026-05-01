@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap');
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 1080px;
+      height: 1350px;
+      overflow: hidden;
+    }
+
+    body {
+      font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+      background: #000000;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── TOPO 55% — Imagem com fade-to-black ── */
+    .image-section {
+      flex: 0 0 55%;
+      position: relative;
+      background-image: url('{{ photo_src }}');
+      background-size: cover;
+      background-position: center top;
+    }
+
+    .image-section::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        transparent 35%,
+        rgba(0, 0, 0, 0.55) 65%,
+        #000000 100%
+      );
+    }
+
+    /* ── BASE 45% — Preto sólido ── */
+    .content-section {
+      flex: 0 0 45%;
+      background: #000000;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 48px 80px 56px 80px;
+    }
+
+    /* ── TAG / PÍLULA ── */
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      background: #1A4A8E;
+      color: #ffffff;
+      padding: 10px 26px;
+      border-radius: 999px;
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      width: fit-content;
+    }
+
+    /* ── BLOCO DE TEXTO ── */
+    .text-block {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .title {
+      font-size: 62px;
+      font-weight: 800;
+      color: #D35400;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+
+    .subtitle {
+      font-size: 27px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.55;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .handle-btn {
+      display: inline-flex;
+      align-items: center;
+      border: 2px solid #ffffff;
+      color: #ffffff;
+      padding: 12px 32px;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 24px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      background: transparent;
+    }
+
+    /* ── DOTS (carrossel) ── */
+    .dots {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.30);
+    }
+
+    .dot.active {
+      width: 13px;
+      height: 13px;
+      background: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="image-section"></div>
+
+  <div class="content-section">
+
+    <div class="text-block">
+      <span class="tag">{{ tag }}</span>
+      <h1 class="title">{{ title }}</h1>
+      <p class="subtitle">{{ subtitle }}</p>
+    </div>
+
+    <div class="footer">
+      <span class="handle-btn">{{ handle }}</span>
+      {% if show_dots %}
+      <div class="dots">
+        {% for i in range(total_pages) %}
+        <div class="dot{% if i == current_page %} active{% endif %}"></div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+
+  </div>
+
+</body>
+</html>

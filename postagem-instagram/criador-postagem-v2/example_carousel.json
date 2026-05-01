@@ -1,0 +1,23 @@
+[
+  {
+    "photo": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1080",
+    "tag": "Dica #01",
+    "title": "Por que todo dev deveria aprender Cloud?",
+    "subtitle": "A infraestrutura mudou. Quem domina AWS ou Azure entrega mais rápido e cobra mais.",
+    "handle": "@antoniomarco_dev"
+  },
+  {
+    "photo": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1080",
+    "tag": "Dica #02",
+    "title": "Comece pelo básico: EC2, S3 e Lambda",
+    "subtitle": "Esses três serviços resolvem 80% dos problemas reais de produto. Domine-os primeiro.",
+    "handle": "@antoniomarco_dev"
+  },
+  {
+    "photo": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1080",
+    "tag": "Dica #03",
+    "title": "Certificação valida, mas prática vende",
+    "subtitle": "Mostre projetos reais no portfólio. Recrutadores contratam quem resolve problemas.",
+    "handle": "@antoniomarco_dev"
+  }
+]
