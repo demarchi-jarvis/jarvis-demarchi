@@ -5,6 +5,7 @@ import requests
 from jinja2 import Environment, FileSystemLoader
 
 from .data_models import PostData
+from .font_loader import get_font_face_css
 
 
 class HTMLGenerator:
@@ -13,6 +14,7 @@ class HTMLGenerator:
             loader=FileSystemLoader(templates_dir),
             autoescape=True,
         )
+        self._font_css = get_font_face_css()
 
     def _encode_photo(self, photo_url: str) -> str:
         if photo_url.startswith(("http://", "https://")):
@@ -48,4 +50,5 @@ class HTMLGenerator:
             show_arrow=show_arrow,
             page_number=post.page_number or 1,
             total_pages=post.total_pages or 1,
+            font_css=self._font_css,
         )
